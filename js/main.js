@@ -166,6 +166,7 @@
   /* ---------- shared chrome ---------- */
   function buildChrome() {
     var cur = location.pathname.split('/').pop() || 'index.html';
+    if (cur.indexOf('.') === -1) cur += '.html';
     var header = document.createElement('header');
     header.className = 'site-header bleed';
     header.innerHTML =
@@ -275,7 +276,9 @@
   function setupVideo() {
     var v = vid(); if (!v) return;
     var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    v.muted = true;
     if (reduce) { v.pause(); v.removeAttribute('autoplay'); }
+    else { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
     var b = $('#vidBtn');
     if (b) b.addEventListener('click', function () {
       if (v.paused) { v.play(); } else { v.pause(); }

@@ -13,8 +13,7 @@ Every call to action opens WhatsApp on **+968 9655 2936**.
 ## Change the cover video
 Replace `video/hero.mp4` with the client's own footage and keep the file name.
 - MP4 (H.264), 1280x720 or 1920x1080, 10 to 30 seconds, under 8 MB. It plays muted, looping and without sound.
-- Replace `img/hero-poster.jpg` with a frame from the new video. It shows while the video loads.
-- The current `hero.mp4` is a placeholder slideshow made from project photos.
+- Use H.264 (not HEVC/H.265): HEVC will not autoplay in Chrome or Firefox. Remove the audio track.
 
 ## Change the WhatsApp number
 Edit `PHONE` and `DISPLAY` at the top of `js/main.js`, then update the number shown in the HTML pages (search for `+968 9655 2936`).
@@ -23,7 +22,8 @@ Edit `PHONE` and `DISPLAY` at the top of `js/main.js`, then update the number sh
 All English and Arabic text lives in `js/main.js` (`T.en` and `T.ar`). Please have a native Arabic speaker review the Arabic copy.
 
 ## Deploy
-Plain static files, no build step. Two options:
+Plain static files, no build step. Options:
+0. **Vercel**: import the repo at vercel.com/new, Framework Preset *Other*, no build command, output directory left empty. `vercel.json` sets the caching headers.
 1. **GitHub Pages**: Settings > Pages > Source: *GitHub Actions*. The workflow in `.github/workflows/pages.yml` publishes on every push to `main`.
 2. Upload the whole folder to any web host.
 
