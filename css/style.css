@@ -228,3 +228,46 @@ footer.site nav{display:flex;flex-wrap:wrap;gap:6px 18px}
   .hero{min-height:560px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+
+/* ---------- Mobile refinements ---------- */
+@media (hover:none){
+  .btn:hover,.card:hover .ph img,.gal button:hover img{transform:none;filter:none}
+}
+@media (max-width:700px){
+  body{font-size:16.5px}
+  /* Cover: video on top in full colour, text below on white */
+  .hero{display:block;min-height:0;background:var(--bg)}
+  .hero::after,.hero .star{display:none}
+  .hero video{position:relative;inset:auto;display:block;width:100vw;max-width:none;height:auto;aspect-ratio:4/3;max-height:58vh;
+    margin-inline:calc(50% - 50vw);background:var(--surface)}
+  .hero .in{padding-block:24px 36px}
+  .hero h1{font-size:clamp(2rem,9vw,2.6rem)}
+  .hero .lede{font-size:1.05rem}
+  .vid-ctl{inset-inline-end:max(16px,env(safe-area-inset-right,0px));top:12px;bottom:auto;min-height:44px;padding-inline:1rem}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .cta-row .btn{width:100%}
+  .band ul{gap:10px 14px;padding:1.1rem 0}
+  .band li{font-size:.92rem}
+  .head{margin-bottom:1.6rem}
+  .gal{columns:2 140px;column-gap:10px}
+  .gal button{margin-bottom:10px}
+  .svc{padding-block:24px}
+  .svc .btn,.card .btn{width:100%}
+  .pagehead .in{padding-block:30px 34px}
+  .two{gap:28px}
+  .final .in .btn{width:100%}
+  .final .big,.contact-card .big{font-size:1.5rem}
+  summary{padding-block:.35rem;min-height:44px;align-items:center}
+  footer.site nav a{display:inline-block;padding:.65rem .2rem}
+  footer.site .in{gap:4px 16px}
+  .lang{min-height:44px}
+  .burger{width:46px;height:44px}
+  nav.main a{padding:.95rem 1rem}
+  .chip span{padding:.65rem 1rem}
+}
+@media (max-width:380px){
+  .brand b{font-size:.98rem}
+  .lang{padding-inline:.7rem}
+  .band ul{grid-template-columns:1fr}
+}

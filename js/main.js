@@ -42,7 +42,7 @@
       ppTitle: 'Our projects', ppLead: 'Villas, entrances and gardens we have fitted. Tap a photo to enlarge it.',
       close: 'Close',
       // about page
-      abTitle: 'About Umm Rakan', abLead: 'Premium aluminum and UPVC solutions for homeowners in Oman.',
+      abEyebrow: 'About us', ctEyebrow: 'Get in touch', abTitle: 'About Umm Rakan', abLead: 'Premium aluminum and UPVC solutions for homeowners in Oman.',
       abP1: 'Umm Rakan Premium Services makes and installs the outdoor and architectural elements that finish a home: pergolas, car shades, windows and doors, glass work, laser-cut screens and wood-look roof panels.',
       abP2: 'We work with aluminum, UPVC, steel and glass, and fit each job to your measurements. You talk to us directly on WhatsApp, share photos of the space and get a clear quote.',
       v1t: 'Made to measure', v1d: 'Each job is sized to your opening, wall or driveway.',
@@ -103,7 +103,7 @@
       spTitle: 'خدماتنا', spLead: 'أعمال الألمنيوم واليو بي في سي والحديد والزجاج للمنازل في عُمان. كل خدمة تبدأ برسالة واتساب.',
       ppTitle: 'أعمالنا', ppLead: 'فلل ومداخل وحدائق قمنا بتجهيزها. اضغط على الصورة لتكبيرها.',
       close: 'إغلاق',
-      abTitle: 'عن أم راكان', abLead: 'حلول ألمنيوم ويو بي في سي راقية لأصحاب المنازل في عُمان.',
+      abEyebrow: 'من نحن', ctEyebrow: 'تواصل', abTitle: 'عن أم راكان', abLead: 'حلول ألمنيوم ويو بي في سي راقية لأصحاب المنازل في عُمان.',
       abP1: 'أم راكان للخدمات المميزة تصنع وتركّب العناصر الخارجية والمعمارية التي تكمل المنزل: برجولات، مظلات سيارات، نوافذ وأبواب، أعمال زجاج، قواطع مفرغة بالليزر وألواح أسقف بمظهر الخشب.',
       abP2: 'نعمل بالألمنيوم واليو بي في سي والحديد والزجاج، ونجهّز كل عمل حسب مقاساتك. تتواصل معنا مباشرة عبر واتساب، وترسل صور المكان، وتستلم عرض سعر واضحاً.',
       v1t: 'حسب المقاس', v1d: 'كل عمل يُصنع على قياس الفتحة أو الجدار أو المدخل.',
@@ -199,6 +199,13 @@
     $('#burger').addEventListener('click', function () {
       var nav = $('#mainNav'); var open = nav.classList.toggle('open');
       this.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    document.addEventListener('click', function (e) {
+      var nav = $('#mainNav'), bb = $('#burger');
+      if (nav.classList.contains('open') && !nav.contains(e.target) && !bb.contains(e.target)) { nav.classList.remove('open'); bb.setAttribute('aria-expanded', 'false'); }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') { $('#mainNav').classList.remove('open'); $('#burger').setAttribute('aria-expanded', 'false'); }
     });
     $('#langBtn').addEventListener('click', function () {
       lang = lang === 'ar' ? 'en' : 'ar';
